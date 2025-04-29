@@ -4,6 +4,11 @@ import os
 import shutil
 from pathlib import Path
 
+# WinRAR yolunu belirt (Windows için tipik kurulum yolu)
+rarfile.UNRAR_TOOL = "C:\\Program Files\\WinRAR\\UnRAR.exe"
+# veya
+# rarfile.UNRAR_TOOL = "C:\\Program Files (x86)\\WinRAR\\UnRAR.exe"
+
 def pdf_ara(rar_dosyasi, aranacak_kelime):
     # Geçici klasör oluştur
     temp_klasor = "gecici_pdf"
@@ -72,6 +77,15 @@ def main():
             pdf_ara(rar_yolu, kelime)
         except Exception as e:
             print(f"Bir hata oluştu: {str(e)}")
+            # Hata detayını göster
+            import traceback
+            print("Hata detayı:")
+            print(traceback.format_exc())
+        
+        print("\nArama tamamlandı!")
+
+if __name__ == "__main__":
+    main()
         
         print("\nArama tamamlandı!")
 
