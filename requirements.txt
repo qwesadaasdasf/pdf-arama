@@ -1,0 +1,2 @@
+rarfile==4.0
+pdfplumber==0.10.2
